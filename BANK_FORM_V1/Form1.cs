@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace BANK_FORM_V1
 {
@@ -19,15 +20,44 @@ namespace BANK_FORM_V1
 
         private void login_button_Click(object sender, EventArgs e)
         {
-            var form_1 = new Form1();
-            form_1.
-            var form_2 = new Form2();
-            form_2.Show(this);
+            MYSQL mysql = new MYSQL();
+            List<string>[] list = mysql.SelectLogin();
+            if (UserCheck(list[0], list[1], Username_TB.Text, Password_TB.Text))
+            {
+                var form_2 = new Form2();
+                form_2.Show(this);
+                this.Hide();
+            }
+            else
+            {
+                Form error = new error_login();
+                error.Show();
+                Username_TB.Text = " ";
+                Password_TB.Text = " ";
+
+            }
         }
 
         private void Signup_button_Click(object sender, EventArgs e)
         {
+            Form sign = new Signup();
+            sign.Show();
+            this.Hide();        }
+        private bool UserCheck(List<string> user, List<string> password, string userInput, string passInput)
+        {
+            bool returnvalue = false;
+            for (int i = 0; i < user.Count; i++)
+            {
+                if (user[i] == userInput)
+                {
+                    if (password[i] == passInput)
+                    {
+                        returnvalue = true;
+                    }
+                }
+            }
 
+            return returnvalue;
         }
 
         private void Password_TB_TextChanged(object sender, EventArgs e)
