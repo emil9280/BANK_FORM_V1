@@ -14,6 +14,7 @@ namespace BANK_FORM_V1
     {
         public Form2()
         {
+            this.Hide();
             InitializeComponent();
         }
 

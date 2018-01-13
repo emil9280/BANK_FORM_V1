@@ -42,7 +42,10 @@ namespace BANK_FORM_V1
         {
             Form sign = new Signup();
             sign.Show();
-            this.Hide();        }
+            this.Hide();
+            Form f = new Form2();
+            f.Show();
+        }
         private bool UserCheck(List<string> user, List<string> password, string userInput, string passInput)
         {
             bool returnvalue = false;
