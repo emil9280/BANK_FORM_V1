@@ -11,39 +11,47 @@ namespace BANK_FORM_V1
 {
     class MYSQL
     {
-        private MySqlConnection conntection;
+        private MySqlConnection connection;
         private string server;
         private string database;
         private string uid;
         private string password;
-        public void Initiallize()
+
+        public MYSQL()
+        {
+            Initiallize();
+        }
+
+        private void Initiallize()
         {
             server = "localhost";
             database = "users";
             uid = "root";
             password = "3milHM9685";
-            string connectionstring;
-            connectionstring = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-            conntection = new MySqlConnection(connectionstring);
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connection = new MySqlConnection(connectionString);
         }
-        private bool open_connection()
+
+        private bool OpenConnection()
         {
             try
             {
-                conntection.Open();
+                connection.Open();
                 return true;
             }
-            catch(MySqlException ex)
+            catch (MySqlException ex)
             {
-                switch(ex.Number)
+                switch (ex.Number)
                 {
                     case 0:
-                        error_login error = new error_login();
-                        error.Show();
+                        
+                        Thread.Sleep(5000);
                         break;
+
                     case 1045:
-                        error_login error1 = new error_login();
-                        error1.Show();
+                        
+                        Thread.Sleep(5000);
                         break;
                 }
                 return false;
@@ -54,15 +62,17 @@ namespace BANK_FORM_V1
         {
             try
             {
-                conntection.Close();
+                connection.Close();
                 return true;
             }
             catch (MySqlException ex)
-            {               
+            {
+                
                 Thread.Sleep(5000);
                 return false;
             }
         }
+
         public List<string>[] SelectLogin()
         {
             string query = "SELECT * FROM bankusers";
@@ -71,9 +81,9 @@ namespace BANK_FORM_V1
             list[0] = new List<string>();
             list[1] = new List<string>();
 
-            if (this.open_connection())
+            if (this.OpenConnection())
             {
-                MySqlCommand cmd = new MySqlCommand(query, conntection);
+                MySqlCommand cmd = new MySqlCommand(query, connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
 
                 while (dataReader.Read())

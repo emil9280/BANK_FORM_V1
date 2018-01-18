@@ -19,11 +19,7 @@ namespace BANK_FORM_V1
 
         private void Retry_button_Click(object sender, EventArgs e)
         {
-            Form1 frm = new Form1();
-            TextBox txt = (TextBox)frm.Controls.Find("picival", true)[0];
-            txt.Text = " ";
-            Form error = new error_login();
-            error.Close();
+            this.Close();
         }
     }
 }

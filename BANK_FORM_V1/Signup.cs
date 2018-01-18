@@ -23,5 +23,10 @@ namespace BANK_FORM_V1
             Form can_1 = new Form1();
             can_1.Show();
         }
+
+        private void add_user_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

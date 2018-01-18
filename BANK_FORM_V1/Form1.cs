@@ -24,18 +24,21 @@ namespace BANK_FORM_V1
             List<string>[] list = mysql.SelectLogin();
             if (UserCheck(list[0], list[1], Username_TB.Text, Password_TB.Text))
             {
-                var form_2 = new Form2();
-                form_2.Show(this);
+                Form2 form2 = new Form2();
+                form2.Show();
+                form2.WindowState = FormWindowState.Normal;
+                form2.ShowInTaskbar = true;
                 this.Hide();
             }
             else
             {
                 Form error = new error_login();
                 error.Show();
-                Username_TB.Text = " ";
-                Password_TB.Text = " ";
+                Username_TB.Text = "";
+                Password_TB.Text = "";
 
             }
+
         }
 
         private void Signup_button_Click(object sender, EventArgs e)
@@ -43,8 +46,6 @@ namespace BANK_FORM_V1
             Form sign = new Signup();
             sign.Show();
             this.Hide();
-            Form f = new Form2();
-            f.Show();
         }
         private bool UserCheck(List<string> user, List<string> password, string userInput, string passInput)
         {

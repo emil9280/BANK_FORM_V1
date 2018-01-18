@@ -28,24 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.new_username_tb = new System.Windows.Forms.TextBox();
+            this.new_password_tb = new System.Windows.Forms.TextBox();
             this.cancel = new System.Windows.Forms.Button();
+            this.new_email_tb = new System.Windows.Forms.TextBox();
+            this.username_label = new System.Windows.Forms.Label();
+            this.password_label = new System.Windows.Forms.Label();
+            this.email_label = new System.Windows.Forms.Label();
+            this.add_user = new System.Windows.Forms.Button();
+            this.repass_label = new System.Windows.Forms.Label();
+            this.repass_tb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // new_username_tb
             // 
-            this.textBox1.Location = new System.Drawing.Point(172, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.new_username_tb.Location = new System.Drawing.Point(172, 39);
+            this.new_username_tb.Name = "new_username_tb";
+            this.new_username_tb.Size = new System.Drawing.Size(100, 20);
+            this.new_username_tb.TabIndex = 0;
             // 
-            // textBox2
+            // new_password_tb
             // 
-            this.textBox2.Location = new System.Drawing.Point(172, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.new_password_tb.Location = new System.Drawing.Point(172, 66);
+            this.new_password_tb.Name = "new_password_tb";
+            this.new_password_tb.Size = new System.Drawing.Size(100, 20);
+            this.new_password_tb.TabIndex = 1;
             // 
             // cancel
             // 
@@ -57,14 +64,81 @@
             this.cancel.UseVisualStyleBackColor = true;
             this.cancel.Click += new System.EventHandler(this.cancel_Click);
             // 
+            // new_email_tb
+            // 
+            this.new_email_tb.Location = new System.Drawing.Point(172, 119);
+            this.new_email_tb.Name = "new_email_tb";
+            this.new_email_tb.Size = new System.Drawing.Size(100, 20);
+            this.new_email_tb.TabIndex = 3;
+            // 
+            // username_label
+            // 
+            this.username_label.AutoSize = true;
+            this.username_label.Location = new System.Drawing.Point(27, 39);
+            this.username_label.Name = "username_label";
+            this.username_label.Size = new System.Drawing.Size(55, 13);
+            this.username_label.TabIndex = 4;
+            this.username_label.Text = "Username";
+            // 
+            // password_label
+            // 
+            this.password_label.AutoSize = true;
+            this.password_label.Location = new System.Drawing.Point(27, 66);
+            this.password_label.Name = "password_label";
+            this.password_label.Size = new System.Drawing.Size(53, 13);
+            this.password_label.TabIndex = 5;
+            this.password_label.Text = "Password";
+            // 
+            // email_label
+            // 
+            this.email_label.AutoSize = true;
+            this.email_label.Location = new System.Drawing.Point(27, 119);
+            this.email_label.Name = "email_label";
+            this.email_label.Size = new System.Drawing.Size(35, 13);
+            this.email_label.TabIndex = 6;
+            this.email_label.Text = "E-mail";
+            // 
+            // add_user
+            // 
+            this.add_user.Location = new System.Drawing.Point(196, 226);
+            this.add_user.Name = "add_user";
+            this.add_user.Size = new System.Drawing.Size(75, 23);
+            this.add_user.TabIndex = 7;
+            this.add_user.Text = "Add user";
+            this.add_user.UseVisualStyleBackColor = true;
+            this.add_user.Click += new System.EventHandler(this.add_user_Click);
+            // 
+            // repass_label
+            // 
+            this.repass_label.AutoSize = true;
+            this.repass_label.Location = new System.Drawing.Point(27, 93);
+            this.repass_label.Name = "repass_label";
+            this.repass_label.Size = new System.Drawing.Size(93, 13);
+            this.repass_label.TabIndex = 8;
+            this.repass_label.Text = "Reenter password";
+            // 
+            // repass_tb
+            // 
+            this.repass_tb.Location = new System.Drawing.Point(171, 93);
+            this.repass_tb.Name = "repass_tb";
+            this.repass_tb.Size = new System.Drawing.Size(100, 20);
+            this.repass_tb.TabIndex = 9;
+            // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.repass_tb);
+            this.Controls.Add(this.repass_label);
+            this.Controls.Add(this.add_user);
+            this.Controls.Add(this.email_label);
+            this.Controls.Add(this.password_label);
+            this.Controls.Add(this.username_label);
+            this.Controls.Add(this.new_email_tb);
             this.Controls.Add(this.cancel);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.new_password_tb);
+            this.Controls.Add(this.new_username_tb);
             this.Name = "Signup";
             this.Text = "Signup";
             this.ResumeLayout(false);
@@ -74,8 +148,15 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox new_username_tb;
+        private System.Windows.Forms.TextBox new_password_tb;
         private System.Windows.Forms.Button cancel;
+        private System.Windows.Forms.TextBox new_email_tb;
+        private System.Windows.Forms.Label username_label;
+        private System.Windows.Forms.Label password_label;
+        private System.Windows.Forms.Label email_label;
+        private System.Windows.Forms.Button add_user;
+        private System.Windows.Forms.Label repass_label;
+        private System.Windows.Forms.TextBox repass_tb;
     }
 }

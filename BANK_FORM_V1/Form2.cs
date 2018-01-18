@@ -13,9 +13,10 @@ namespace BANK_FORM_V1
     public partial class Form2 : Form
     {
         public Form2()
-        {
-            this.Hide();
+        {            
             InitializeComponent();
+            this.WindowState = FormWindowState.Minimized;
+            this.ShowInTaskbar = false;
         }
 
         private void Help_button_Click(object sender, EventArgs e)
