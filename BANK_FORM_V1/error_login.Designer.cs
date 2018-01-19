@@ -58,6 +58,7 @@
             this.ClientSize = new System.Drawing.Size(214, 83);
             this.Controls.Add(this.Retry_button);
             this.Controls.Add(this.Incorrect);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "error_login";
             this.Text = "error_login";
             this.ResumeLayout(false);

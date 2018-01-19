@@ -69,6 +69,7 @@
             this.Controls.Add(this.retry_bu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "error_signup";
             this.Text = "error_signup";
             this.ResumeLayout(false);

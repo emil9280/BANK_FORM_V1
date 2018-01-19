@@ -112,6 +112,7 @@
             this.Controls.Add(this.Password_label);
             this.Controls.Add(this.Username_label);
             this.Controls.Add(this.greeting);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

@@ -82,6 +82,7 @@
             this.Controls.Add(this.Transfere_button);
             this.Controls.Add(this.Accounts_buttom);
             this.Controls.Add(this.choose_label);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form2";
             this.Text = "Form2";
             this.ResumeLayout(false);
