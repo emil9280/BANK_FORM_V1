@@ -25,7 +25,7 @@ namespace BANK_FORM_V1
             can_1.Show();
         }
 
-        #region connect
+        #region add_user
         private void add_user_Click(object sender, EventArgs e)
         {
             if (new_password_tb.Text == repass_tb.Text && new_username_tb.Text != "" && new_email_tb.Text != "" && new_password_tb.Text != "" && full_name_tb.Text != "")

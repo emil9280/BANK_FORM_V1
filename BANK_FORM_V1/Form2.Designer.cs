@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.choose_label = new System.Windows.Forms.Label();
-            this.Accounts_buttom = new System.Windows.Forms.Button();
             this.Transfere_button = new System.Windows.Forms.Button();
             this.Help_button = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Balance_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // choose_label
@@ -43,19 +44,9 @@
             this.choose_label.TabIndex = 0;
             this.choose_label.Text = "Please choose deportment";
             // 
-            // Accounts_buttom
-            // 
-            this.Accounts_buttom.Location = new System.Drawing.Point(56, 66);
-            this.Accounts_buttom.Name = "Accounts_buttom";
-            this.Accounts_buttom.Size = new System.Drawing.Size(75, 23);
-            this.Accounts_buttom.TabIndex = 1;
-            this.Accounts_buttom.Text = "Accounts";
-            this.Accounts_buttom.UseVisualStyleBackColor = true;
-            this.Accounts_buttom.Click += new System.EventHandler(this.Accounts_buttom_Click);
-            // 
             // Transfere_button
             // 
-            this.Transfere_button.Location = new System.Drawing.Point(56, 96);
+            this.Transfere_button.Location = new System.Drawing.Point(12, 143);
             this.Transfere_button.Name = "Transfere_button";
             this.Transfere_button.Size = new System.Drawing.Size(75, 23);
             this.Transfere_button.TabIndex = 2;
@@ -65,7 +56,7 @@
             // 
             // Help_button
             // 
-            this.Help_button.Location = new System.Drawing.Point(56, 126);
+            this.Help_button.Location = new System.Drawing.Point(163, 144);
             this.Help_button.Name = "Help_button";
             this.Help_button.Size = new System.Drawing.Size(75, 23);
             this.Help_button.TabIndex = 3;
@@ -73,14 +64,33 @@
             this.Help_button.UseVisualStyleBackColor = true;
             this.Help_button.Click += new System.EventHandler(this.Help_button_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(12, 71);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.Text = "Accounts";
+            // 
+            // Balance_label
+            // 
+            this.Balance_label.AutoSize = true;
+            this.Balance_label.Location = new System.Drawing.Point(203, 74);
+            this.Balance_label.Name = "Balance_label";
+            this.Balance_label.Size = new System.Drawing.Size(42, 13);
+            this.Balance_label.TabIndex = 5;
+            this.Balance_label.Text = "xxxxxxx";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(194, 178);
+            this.ClientSize = new System.Drawing.Size(250, 179);
+            this.Controls.Add(this.Balance_label);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Help_button);
             this.Controls.Add(this.Transfere_button);
-            this.Controls.Add(this.Accounts_buttom);
             this.Controls.Add(this.choose_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form2";
@@ -93,8 +103,9 @@
         #endregion
 
         private System.Windows.Forms.Label choose_label;
-        private System.Windows.Forms.Button Accounts_buttom;
         private System.Windows.Forms.Button Transfere_button;
         private System.Windows.Forms.Button Help_button;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label Balance_label;
     }
 }

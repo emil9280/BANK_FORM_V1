@@ -29,9 +29,5 @@ namespace BANK_FORM_V1
 
         }
 
-        private void Accounts_buttom_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
