@@ -60,6 +60,7 @@
             this.Controls.Add(this.Incorrect);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "error_login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "error_login";
             this.ResumeLayout(false);
             this.PerformLayout();

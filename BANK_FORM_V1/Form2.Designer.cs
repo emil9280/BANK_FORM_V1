@@ -33,6 +33,8 @@
             this.Help_button = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Balance_label = new System.Windows.Forms.Label();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // choose_label
@@ -82,6 +84,11 @@
             this.Balance_label.TabIndex = 5;
             this.Balance_label.Text = "xxxxxxx";
             // 
+            // fileSystemWatcher1
+            // 
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,7 +101,9 @@
             this.Controls.Add(this.choose_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,5 +116,6 @@
         private System.Windows.Forms.Button Help_button;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label Balance_label;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }

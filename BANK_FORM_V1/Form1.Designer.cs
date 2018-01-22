@@ -76,6 +76,7 @@
             // 
             this.Password_TB.Location = new System.Drawing.Point(94, 68);
             this.Password_TB.Name = "Password_TB";
+            this.Password_TB.PasswordChar = '*';
             this.Password_TB.Size = new System.Drawing.Size(100, 20);
             this.Password_TB.TabIndex = 4;
             this.Password_TB.TextChanged += new System.EventHandler(this.Password_TB_TextChanged);
@@ -114,6 +115,7 @@
             this.Controls.Add(this.greeting);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

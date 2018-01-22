@@ -166,6 +166,7 @@
             this.Controls.Add(this.new_password_tb);
             this.Controls.Add(this.new_username_tb);
             this.Name = "Signup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup";
             this.ResumeLayout(false);
             this.PerformLayout();

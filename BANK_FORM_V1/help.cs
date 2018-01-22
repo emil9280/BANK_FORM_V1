@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace BANK_FORM_V1
 {
-    public partial class error_signup : Form
+    public partial class help : Form
     {
-        public error_signup()
+        public help()
         {
             InitializeComponent();
         }
 
-        private void retry_bu_Click(object sender, EventArgs e)
+        private void cancel_bu_Click(object sender, EventArgs e)
         {
             this.Close();
         }

@@ -26,8 +26,6 @@ namespace BANK_FORM_V1
             {
                 Form2 form2 = new Form2();
                 form2.Show();
-                form2.WindowState = FormWindowState.Normal;
-                form2.ShowInTaskbar = true;
                 this.Hide();
             }
             else

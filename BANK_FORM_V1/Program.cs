@@ -16,9 +16,7 @@ namespace BANK_FORM_V1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var form1 = new Form1();
-            form1.Show();
-            Application.Run(new Form2());
+            Application.Run(new Form1());
         }
     }
 }
