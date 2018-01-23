@@ -87,9 +87,9 @@
             this.account_label.AutoSize = true;
             this.account_label.Location = new System.Drawing.Point(13, 52);
             this.account_label.Name = "account_label";
-            this.account_label.Size = new System.Drawing.Size(47, 13);
+            this.account_label.Size = new System.Drawing.Size(42, 13);
             this.account_label.TabIndex = 6;
-            this.account_label.Text = "Account";
+            this.account_label.Text = "fddsfffff";
             // 
             // Form2
             // 
