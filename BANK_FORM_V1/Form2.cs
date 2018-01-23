@@ -15,7 +15,7 @@ namespace BANK_FORM_V1
         private string balance_1;
         private string balance_2;
         public Form2()
-        {            
+        {
             InitializeComponent();
         }
 
