@@ -70,6 +70,12 @@ namespace BANK_FORM_V1
                 Thread.Sleep(5000);
                 return false;
             }
+            
         }
+        public void User(string user)
+        {
+            string UUser = SingleTon.GetUser();
+        }
+
     }
 }

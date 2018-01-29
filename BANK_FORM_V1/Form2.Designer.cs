@@ -34,12 +34,13 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.Balance_label = new System.Windows.Forms.Label();
             this.account_label = new System.Windows.Forms.Label();
+            this.User_ID_number_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // choose_label
             // 
             this.choose_label.AutoSize = true;
-            this.choose_label.Location = new System.Drawing.Point(30, 19);
+            this.choose_label.Location = new System.Drawing.Point(9, 22);
             this.choose_label.Name = "choose_label";
             this.choose_label.Size = new System.Drawing.Size(133, 13);
             this.choose_label.TabIndex = 0;
@@ -85,17 +86,26 @@
             // account_label
             // 
             this.account_label.AutoSize = true;
-            this.account_label.Location = new System.Drawing.Point(13, 52);
+            this.account_label.Location = new System.Drawing.Point(9, 55);
             this.account_label.Name = "account_label";
-            this.account_label.Size = new System.Drawing.Size(42, 13);
+            this.account_label.Size = new System.Drawing.Size(52, 13);
             this.account_label.TabIndex = 6;
-            this.account_label.Text = "fddsfffff";
+            this.account_label.Text = "Accounts";
+            // 
+            // User_ID_number_label
+            // 
+            this.User_ID_number_label.AutoSize = true;
+            this.User_ID_number_label.Location = new System.Drawing.Point(178, 9);
+            this.User_ID_number_label.Name = "User_ID_number_label";
+            this.User_ID_number_label.Size = new System.Drawing.Size(0, 13);
+            this.User_ID_number_label.TabIndex = 8;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 179);
+            this.Controls.Add(this.User_ID_number_label);
             this.Controls.Add(this.account_label);
             this.Controls.Add(this.Balance_label);
             this.Controls.Add(this.comboBox1);
@@ -104,6 +114,7 @@
             this.Controls.Add(this.choose_label);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Form2";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -119,5 +130,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label Balance_label;
         private System.Windows.Forms.Label account_label;
+        private System.Windows.Forms.Label User_ID_number_label;
     }
 }

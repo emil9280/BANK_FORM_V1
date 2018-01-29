@@ -24,6 +24,7 @@ namespace BANK_FORM_V1
             List<string>[] list = mysql.SelectLogin();
             if (UserCheck(list[0], list[1], Username_TB.Text, Password_TB.Text))
             {
+                SingleTon.SetUser(Username_TB.Text);
                 Form2 form2 = new Form2();
                 form2.Show();
                 this.Hide();

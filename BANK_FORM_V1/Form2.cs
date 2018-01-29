@@ -12,12 +12,12 @@ namespace BANK_FORM_V1
 {
     public partial class Form2 : Form
     {
-        private string balance_1;
-        private string balance_2;
+        private int User_ID = 10;
+
         public Form2()
-        {
-            
+        {            
             InitializeComponent();
+            Pulled_data();
         }
 
         private void Help_button_Click(object sender, EventArgs e)
@@ -30,6 +30,11 @@ namespace BANK_FORM_V1
         {
             Form trans = new Transfere();
             trans.Show();
+        }
+
+        private void Pulled_data()
+        {
+            User_ID_number_label.Text = "User ID:" + User_ID;
         }
 
     }
