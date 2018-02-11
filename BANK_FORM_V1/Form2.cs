@@ -17,6 +17,9 @@ namespace BANK_FORM_V1
         public Form2()
         {            
             InitializeComponent();
+            MYSQL_balance mYSQL_Balance = new MYSQL_balance();
+            List<string>[] list = mYSQL_Balance.accounts();
+            if (Account_Check)
             Pulled_data();
         }
 

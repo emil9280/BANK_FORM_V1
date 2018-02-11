@@ -74,7 +74,12 @@ namespace BANK_FORM_V1
         }
         public void User(string user)
         {
-            string UUser = SingleTon.GetUser();
+            string User = SingleTon.GetUser();
+        }
+
+        public int accounts(List<string> user, string User)
+        {
+
         }
 
     }
