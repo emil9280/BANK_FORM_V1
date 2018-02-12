@@ -18,7 +18,7 @@ namespace BANK_FORM_V1
         {            
             InitializeComponent();
             MYSQL_balance mYSQL_Balance = new MYSQL_balance();
-            List<string>[] list = mYSQL_Balance.accounts();
+            List<string>[] list = mYSQL_Balance.Account_Checker();
             if (Account_Check)
             Pulled_data();
         }
@@ -38,6 +38,18 @@ namespace BANK_FORM_V1
         private void Pulled_data()
         {
             User_ID_number_label.Text = "User ID:" + User_ID;
+        }
+
+        private int[] Account_Check(List<string> user, string User_Input)
+        {
+            int returnvalue = 0;
+            for (int i = 0; i < user.Count; i++)
+            {
+                if (user[i] == User_Input)
+                {
+                    
+                }
+            }
         }
 
     }

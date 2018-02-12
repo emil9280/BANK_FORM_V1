@@ -77,9 +77,23 @@ namespace BANK_FORM_V1
             string User = SingleTon.GetUser();
         }
 
-        public int accounts(List<string> user, string User)
+        public List<string>[] Account_Checker()
         {
+            string query = "SELECT * FROM bankusers";
+            List<string>[] list = new List<string>[2];
+            list[0] = new List<string>();
+            list[1] = new List<string>();
 
+            if (this.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader DataReader = cmd.ExecuteReader();
+                while (DataReader.Read())
+                {
+                    list[0].Add(DataReader[""])
+                }
+
+            }
         }
 
     }
