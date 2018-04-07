@@ -12,19 +12,16 @@ namespace BANK_FORM_V1
 
         public static void SetUser(string User)
         {
-
+            UserRefrensh = User;
         }
 
         public static string GetUser()
         {
-            if(UserRefrensh != null)
+            if(UserRefrensh == null)
             {
-                return UserRefrensh;
+                UserRefrensh = "";
             }
-            else
-            {
-                return "Error";
-            }
+            return UserRefrensh;
         }
     }
 }

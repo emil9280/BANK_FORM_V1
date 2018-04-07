@@ -80,9 +80,10 @@ namespace BANK_FORM_V1
         public List<string>[] Account_Checker()
         {
             string query = "SELECT * FROM bankusers";
-            List<string>[] list = new List<string>[2];
+            List<string>[] list = new List<string>[3];
             list[0] = new List<string>();
             list[1] = new List<string>();
+            list[2] = new List<string>();
 
             if (this.OpenConnection())
             {
@@ -90,10 +91,16 @@ namespace BANK_FORM_V1
                 MySqlDataReader DataReader = cmd.ExecuteReader();
                 while (DataReader.Read())
                 {
-                    list[0].Add(DataReader[""])
+                    list[0].Add(DataReader["username"] + "");
+                    list[1].Add(DataReader["accounts"] + "");
+                    list[2].Add(DataReader["ID"] + "");
                 }
 
+                DataReader.Close();
+                this.CloseConnection();
+                return list;
             }
+            else return list;
         }
 
     }
