@@ -54,8 +54,8 @@ namespace BANK_FORM_V1
             {
                 if (user[i] == User_Input)
                 {
-                    accounts_data = Convert.ToInt16(accounts);
-                    User_ID = Convert.ToInt16(ID);
+                    //accounts_data = Convert.ToInt16(accounts);
+                    //User_ID = Convert.ToInt16(ID);
                 }
                 else
                 {

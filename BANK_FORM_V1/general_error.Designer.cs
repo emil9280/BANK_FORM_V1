@@ -38,24 +38,27 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(306, 17);
+            this.label1.Size = new System.Drawing.Size(333, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "An error have accurt and the program will close";
+            this.label1.Text = "An error have accurt and the program will shutdown";
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // general_error
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 46);
+            this.ClientSize = new System.Drawing.Size(353, 46);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "general_error";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "general_error";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 
