@@ -24,7 +24,7 @@ namespace BANK_FORM_V1
             InitializeComponent();
             MYSQL_balance mYSQL_Balance = new MYSQL_balance();
             List<string>[] list = mYSQL_Balance.Account_Checker();
-            //account = list[ID].
+            account = Convert.ToInt16(list[ID]);
             Account_Check();
             Pulled_data();
             if (User_ID == -1)
