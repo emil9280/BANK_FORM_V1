@@ -24,7 +24,7 @@ namespace BANK_FORM_V1
             InitializeComponent();
             MYSQL_balance mYSQL_Balance = new MYSQL_balance();
             List<string>[] list = mYSQL_Balance.Account_Checker();
-            account = list[ID].
+            //account = list[ID].
             Account_Check();
             Pulled_data();
             if (User_ID == -1)
@@ -54,6 +54,11 @@ namespace BANK_FORM_V1
         {
             User_ID = SingleTon.GetID();
             accounts_data = SingleTon.GetID();
+        }
+
+        private void Close_button_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         /*private int Account_Check(List<string> user, List<string> accounts, List<string> ID, string User_Input)
