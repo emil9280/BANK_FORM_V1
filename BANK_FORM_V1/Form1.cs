@@ -13,6 +13,7 @@ namespace BANK_FORM_V1
 {
     public partial class Form1 : Form
     {
+        public int ID;
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace BANK_FORM_V1
             if (UserCheck(list[0], list[1], Username_TB.Text, Password_TB.Text))
             {
                 SingleTon.SetUser(Username_TB.Text);
+                SingleTon.SetID(ID);
                 Form2 form2 = new Form2();
                 form2.Show();
                 this.Hide();
@@ -53,6 +55,7 @@ namespace BANK_FORM_V1
             {
                 if (user[i] == userInput)
                 {
+                    ID = i;
                     if (password[i] == passInput)
                     {
                         returnvalue = true;

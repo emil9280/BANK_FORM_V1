@@ -16,13 +16,16 @@ namespace BANK_FORM_V1
     {
         private int User_ID;
         private int accounts_data;
+        private int account;
+        public int ID = SingleTon.GetID();
 
         public Form2()
         {
             InitializeComponent();
             MYSQL_balance mYSQL_Balance = new MYSQL_balance();
             List<string>[] list = mYSQL_Balance.Account_Checker();
-            Account_Check(list[0], list[1], list[2], SingleTon.GetUser());
+            account = list[ID].
+            Account_Check();
             Pulled_data();
             if (User_ID == -1)
             {
@@ -47,15 +50,20 @@ namespace BANK_FORM_V1
         {
             User_ID_number_label.Text = "User ID:" + User_ID;
         }
+        private void Account_Check()
+        {
+            User_ID = SingleTon.GetID();
+            accounts_data = SingleTon.GetID();
+        }
 
-        private int Account_Check(List<string> user, List<string> accounts, List<string> ID, string User_Input)
+        /*private int Account_Check(List<string> user, List<string> accounts, List<string> ID, string User_Input)
         {            
             for (int i = 0; i < user.Count; i++)
             {
                 if (user[i] == User_Input)
                 {
-                    //accounts_data = Convert.ToInt16(accounts);
-                    //User_ID = Convert.ToInt16(ID);
+                    accounts_data = Convert.ToInt16(accounts);
+                    User_ID = Convert.ToInt16(ID);
                 }
                 else
                 {
@@ -63,7 +71,7 @@ namespace BANK_FORM_V1
                 }
             }
             return -1;
-        }
+        }*/
 
     }
 }

@@ -23,5 +23,36 @@ namespace BANK_FORM_V1
             }
             return UserRefrensh;
         }
+
+        public static int RefreshID;
+
+        public static void SetID(int ID)
+        {
+            RefreshID = ID;
+        }
+
+        public static int GetID()
+        {
+            if(RefreshID == null)
+            {
+                RefreshID = 0;
+            }
+            return RefreshID;
+        }
+
+        public static int Refreshaccount;
+
+        public static void Setaccounts(int accounts)
+        {
+            Refreshaccount = accounts;
+        }
+        public static int Getaccounts()
+        {
+            if (Refreshaccount == null)
+            {
+                Refreshaccount = 0;
+            }
+            return Refreshaccount;
+        }
     }
 }
