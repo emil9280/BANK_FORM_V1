@@ -29,7 +29,7 @@ namespace BANK_FORM_V1
             uid = "root";
             password = "3milHM9685";
             string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Sslmode = none;";
             connection = new MySqlConnection(connectionString);
         }
 

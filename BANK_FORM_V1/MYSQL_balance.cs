@@ -28,7 +28,7 @@ namespace BANK_FORM_V1
             uid = "root";
             password = "3milHM9685";
             string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Sslmode = none ;";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -82,8 +82,6 @@ namespace BANK_FORM_V1
             string query = "SELECT accounts FROM bankusers";
             List<string>[] list = new List<string>[1];
             list[0] = new List<string>();
-            //list[1] = new List<string>();
-            //list[2] = new List<string>();
 
             if (this.OpenConnection())
             {
@@ -92,8 +90,6 @@ namespace BANK_FORM_V1
                 while (DataReader.Read())
                 {
                     list[0].Add(DataReader["accounts"] + "");
-                    //list[1].Add(DataReader["accounts"] + "");
-                    //list[1].Add(DataReader["ID"] + "");
                 }
 
                 DataReader.Close();
