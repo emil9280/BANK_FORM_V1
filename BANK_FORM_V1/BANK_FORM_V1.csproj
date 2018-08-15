@@ -87,6 +87,8 @@
     <Compile Include="MYSQL_balance.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pull_Balance.cs" />
+    <Compile Include="RFID.cs" />
     <Compile Include="Signup.cs">
       <SubType>Form</SubType>
     </Compile>

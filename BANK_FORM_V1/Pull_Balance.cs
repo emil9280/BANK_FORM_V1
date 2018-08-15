@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace BANK_FORM_V1
 {
-    class MYSQL_balance
+    class Pull_Balance
     {
         private MySqlConnection connection;
         private string server;
@@ -16,7 +16,7 @@ namespace BANK_FORM_V1
         private string uid;
         private string password;
 
-        public MYSQL_balance()
+        public Pull_Balance()
         {
             Initiallize();
         }
@@ -70,30 +70,9 @@ namespace BANK_FORM_V1
                 Thread.Sleep(5000);
                 return false;
             }
-            
+
         }
 
-        public List<string> Account_Checker()
-        {
-            string query = "SELECT accounts FROM bankusers";
-            List<string> list = new List<string>();
-            list = new List<string>();
-
-            if (this.OpenConnection())
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                MySqlDataReader DataReader = cmd.ExecuteReader();
-                while (DataReader.Read())
-                {
-                    list.Add(DataReader["accounts"] + "");
-                }
-
-                DataReader.Close();
-                this.CloseConnection();
-                return list;
-            }
-            else return list;
-        }
 
     }
 }

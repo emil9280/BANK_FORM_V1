@@ -15,7 +15,6 @@ namespace BANK_FORM_V1
     public partial class Form2 : Form
     {
         private int User_ID;
-        private int accounts_data;
         private int account;
         public int ID = SingleTon.GetID();
 
@@ -23,7 +22,7 @@ namespace BANK_FORM_V1
         {
             InitializeComponent();
             MYSQL_balance mYSQL_Balance = new MYSQL_balance();
-            List<string>[] list = mYSQL_Balance.Account_Checker();
+            List<string> list = mYSQL_Balance.Account_Checker();
             account = Convert.ToInt16(list[ID]);
             Account_Check();
             Pulled_data();
@@ -53,7 +52,6 @@ namespace BANK_FORM_V1
         private void Account_Check()
         {
             User_ID = SingleTon.GetID();
-            accounts_data = SingleTon.GetID();
         }
 
         private void Close_button_Click(object sender, EventArgs e)
