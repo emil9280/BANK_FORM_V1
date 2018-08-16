@@ -16,16 +16,6 @@ namespace BANK_FORM_V1
         private string database;
         private string uid;
         private string password;
-        public double Balance_1;
-        public double Balance_2;
-        public double Balance_3;
-        public double Balance_4;
-        public double Balance_5;
-        public double Balance_6;
-        public double Balance_7;
-        public double Balance_8;
-        public double Balance_9;
-        public double Balance_10;
 
         public Pull_Balance()
         {
@@ -34,7 +24,7 @@ namespace BANK_FORM_V1
 
         /*public List<string> account_ID()
         {
-            SingleTon.GetID();
+            int ID = SingleTon.GetID();
         }*/
 
         private void Initiallize()
@@ -404,7 +394,6 @@ namespace BANK_FORM_V1
             else return list;
 
         }
-
 
     }
 }

@@ -28,7 +28,7 @@ namespace BANK_FORM_V1
             account = Convert.ToInt16(list[ID]);
             Account_Check();
             Pulled_data();
-            //Balance_List = balance.account
+            //Balance_List = balance.account_ID();
             if (User_ID == -1)
             {
                 general_error general_Error = new general_error();

@@ -116,6 +116,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(250, 179);
+            this.ControlBox = false;
             this.Controls.Add(this.Close_button);
             this.Controls.Add(this.User_ID_number_label);
             this.Controls.Add(this.account_label);
