@@ -19,8 +19,7 @@ namespace BANK_FORM_V1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Close();
+            Application.Exit();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace BANK_FORM_V1
             uid = "root";
             password = "3milHM9685";
             string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Sslmode = none ;";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -72,18 +72,12 @@ namespace BANK_FORM_V1
             }
             
         }
-        public void User(string user)
-        {
-            string User = SingleTon.GetUser();
-        }
 
-        public List<string>[] Account_Checker()
+        public List<string> Account_Checker()
         {
-            string query = "SELECT * FROM bankusers";
-            List<string>[] list = new List<string>[3];
-            list[0] = new List<string>();
-            list[1] = new List<string>();
-            list[2] = new List<string>();
+            string query = "SELECT accounts FROM bankusers";
+            List<string> list = new List<string>();
+            list = new List<string>();
 
             if (this.OpenConnection())
             {
@@ -91,9 +85,7 @@ namespace BANK_FORM_V1
                 MySqlDataReader DataReader = cmd.ExecuteReader();
                 while (DataReader.Read())
                 {
-                    list[0].Add(DataReader["username"] + "");
-                    list[1].Add(DataReader["accounts"] + "");
-                    list[2].Add(DataReader["ID"] + "");
+                    list.Add(DataReader["accounts"] + "");
                 }
 
                 DataReader.Close();

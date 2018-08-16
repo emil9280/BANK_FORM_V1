@@ -35,7 +35,7 @@ namespace BANK_FORM_V1
                 string uid = "root";
                 string password = "3milHM9685";
                 string connectionString;
-                connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+                connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Sslmode = none" + ";";
                 MySqlConnection connection = new MySqlConnection(connectionString);
 
                 string Query = "insert into users.bankusers(username,password,full_name,email) values('" + new_username_tb.Text + "','"+new_password_tb.Text+"','"+full_name_tb.Text+"','"+new_email_tb.Text+"');";

@@ -29,7 +29,7 @@ namespace BANK_FORM_V1
             uid = "root";
             password = "3milHM9685";
             string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";" + "Sslmode = none;";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -90,6 +90,30 @@ namespace BANK_FORM_V1
                 {
                     list[0].Add(dataReader["username"] + "");
                     list[1].Add(dataReader["password"] + "");
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+                return list;
+            }
+            else return list;
+        }
+
+        public List<string> RFID()
+        {
+            string query = "SELECT RFID FROM bankusers";
+
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            if (this.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["RFID"] + "");
                 }
 
                 dataReader.Close();

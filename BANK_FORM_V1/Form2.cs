@@ -15,15 +15,20 @@ namespace BANK_FORM_V1
     public partial class Form2 : Form
     {
         private int User_ID;
-        private int accounts_data;
+        private int account;
+        public int ID = SingleTon.GetID();
+        public List<string> Balance_List;
 
         public Form2()
         {
             InitializeComponent();
+            Pull_Balance balance = new Pull_Balance();
             MYSQL_balance mYSQL_Balance = new MYSQL_balance();
-            List<string>[] list = mYSQL_Balance.Account_Checker();
-            Account_Check(list[0], list[1], list[2], SingleTon.GetUser());
+            List<string> list = mYSQL_Balance.Account_Checker();
+            account = Convert.ToInt16(list[ID]);
+            Account_Check();
             Pulled_data();
+            //Balance_List = balance.account_ID();
             if (User_ID == -1)
             {
                 general_error general_Error = new general_error();
@@ -47,23 +52,21 @@ namespace BANK_FORM_V1
         {
             User_ID_number_label.Text = "User ID:" + User_ID;
         }
-
-        private int Account_Check(List<string> user, List<string> accounts, List<string> ID, string User_Input)
-        {            
-            for (int i = 0; i < user.Count; i++)
-            {
-                if (user[i] == User_Input)
-                {
-                    accounts_data = Convert.ToInt16(accounts);
-                    User_ID = Convert.ToInt16(ID);
-                }
-                else
-                {
-                    return User_ID = -1;
-                }
-            }
-            return -1;
+        private void Account_Check()
+        {
+            User_ID = SingleTon.GetID();
         }
 
+        private void Close_button_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        public int Getaccount()
+        {
+            return account;
+        }
+
+       
     }
 }
