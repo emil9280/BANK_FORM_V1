@@ -17,15 +17,18 @@ namespace BANK_FORM_V1
         private int User_ID;
         private int account;
         public int ID = SingleTon.GetID();
+        public List<string> Balance_List;
 
         public Form2()
         {
             InitializeComponent();
+            Pull_Balance balance = new Pull_Balance();
             MYSQL_balance mYSQL_Balance = new MYSQL_balance();
             List<string> list = mYSQL_Balance.Account_Checker();
             account = Convert.ToInt16(list[ID]);
             Account_Check();
             Pulled_data();
+            Balance_List = balance.account
             if (User_ID == -1)
             {
                 general_error general_Error = new general_error();
@@ -59,22 +62,11 @@ namespace BANK_FORM_V1
             Application.Exit();
         }
 
-        /*private int Account_Check(List<string> user, List<string> accounts, List<string> ID, string User_Input)
-        {            
-            for (int i = 0; i < user.Count; i++)
-            {
-                if (user[i] == User_Input)
-                {
-                    accounts_data = Convert.ToInt16(accounts);
-                    User_ID = Convert.ToInt16(ID);
-                }
-                else
-                {
-                    return User_ID = -1;
-                }
-            }
-            return -1;
-        }*/
+        public int Getaccount()
+        {
+            return account;
+        }
 
+       
     }
 }

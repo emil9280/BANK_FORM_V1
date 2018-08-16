@@ -18,9 +18,9 @@ namespace BANK_FORM_V1
         public Transfere()
         {
             InitializeComponent();
-            //From =
-            //Too =
-            /*for(int i= 0; i< From.Count; i++)
+            /*From =
+            Too =
+            for(int i= 0; i< From.Count; i++)
             {
                 From_CoBo.Items.Add(From);
                 Too_CoBo.Items.Add(Too);
