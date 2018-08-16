@@ -98,5 +98,29 @@ namespace BANK_FORM_V1
             }
             else return list;
         }
+
+        public List<string> RFID()
+        {
+            string query = "SELECT RFID FROM bankusers";
+
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            if (this.OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["RFID"] + "");
+                }
+
+                dataReader.Close();
+                this.CloseConnection();
+                return list;
+            }
+            else return list;
+        }
     }
 }

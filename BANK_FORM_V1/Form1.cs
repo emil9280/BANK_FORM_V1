@@ -13,7 +13,8 @@ namespace BANK_FORM_V1
 {
     public partial class Form1 : Form
     {
-        public int ID;
+        MYSQL mysql = new MYSQL();
+        public int ID_;
         public Form1()
         {
             InitializeComponent();
@@ -21,12 +22,12 @@ namespace BANK_FORM_V1
 
         private void login_button_Click(object sender, EventArgs e)
         {
-            MYSQL mysql = new MYSQL();
+            
             List<string>[] list = mysql.SelectLogin();
             if (UserCheck(list[0], list[1], Username_TB.Text, Password_TB.Text))
             {
                 SingleTon.SetUser(Username_TB.Text);
-                SingleTon.SetID(ID);
+                SingleTon.SetID(ID_);
                 Form2 form2 = new Form2();
                 form2.Show();
                 this.Hide();
@@ -55,7 +56,7 @@ namespace BANK_FORM_V1
             {
                 if (user[i] == userInput)
                 {
-                    ID = i;
+                    ID_ = i;
                     if (password[i] == passInput)
                     {
                         returnvalue = true;
@@ -74,6 +75,44 @@ namespace BANK_FORM_V1
         private void Username_TB_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void RFID_Click(object sender, EventArgs e)
+        {
+            RFID RFid = new RFID();
+            string ID = RFid.RFID_ID();
+            ID = ID.Remove(12, 1);
+            List<string> RFIDd = mysql.RFID();
+            if (RFID_check(RFIDd, ID.Remove(0, 1)))
+            {
+                SingleTon.SetID(ID_);
+                Form2 form2 = new Form2();                
+                form2.Show();
+                this.Hide();
+            }
+            else
+            {
+                Form error = new error_login();
+                error.Show();
+                Username_TB.Text = "";
+                Password_TB.Text = "";
+
+            }
+
+        }
+        private bool RFID_check(List<string> tag, string ID)
+        {
+            bool returnvalue = false;
+            for (int i = 0; i < tag.Count; i++)
+            {
+                if (tag[i] == ID)
+                {
+                    ID_ = i;
+                    returnvalue = true;
+                }
+            }
+
+            return returnvalue;
         }
     }
 }

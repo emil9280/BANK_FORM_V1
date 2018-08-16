@@ -32,10 +32,10 @@ namespace BANK_FORM_V1
             Initiallize();
         }
 
-        public List<string> account_ID()
+        /*public List<string> account_ID()
         {
             SingleTon.GetID();
-        }
+        }*/
 
         private void Initiallize()
         {
