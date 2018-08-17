@@ -82,8 +82,8 @@ namespace BANK_FORM_V1
         {
             accounts = SingleTon.GetID();
 
-            List<string>[] list = new List<string>[10];            
-            for(int i = 0; i< accounts+1; i++)
+            List<string>[] list = new List<string>[10];
+            for(int i = 0; i <= accounts+1; i++)
             {
                 list[i] = new List<string>();
             }
@@ -94,7 +94,7 @@ namespace BANK_FORM_V1
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                for (int i = 0; i < accounts + 1; i++)
+                for (int i = 0; i <= accounts + 1; i++)
                 {
                     MySqlDataReader dataReader = cmd.ExecuteReader();
                     while (dataReader.Read())
