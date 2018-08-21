@@ -1,42 +1,48 @@
-/*
- * Write personal data of a MIFARE RFID card using a RFID-RC522 reader
- * Uses MFRC522 - Library to use ARDUINO RFID MODULE KIT 13.56 MHZ WITH TAGS SPI W AND R BY COOQROBOT. 
- * -----------------------------------------------------------------------------------------
- *             MFRC522      Arduino       Arduino   Arduino    Arduino          Arduino
- *             Reader/PCD   Uno/101       Mega      Nano v3    Leonardo/Micro   Pro Micro
- * Signal      Pin          Pin           Pin       Pin        Pin              Pin
- * -----------------------------------------------------------------------------------------
- * RST/Reset   RST          9             5         D9         RESET/ICSP-5     RST
- * SPI SS      SDA(SS)      10            53        D10        10               10
- * SPI MOSI    MOSI         11 / ICSP-4   51        D11        ICSP-4           16
- * SPI MISO    MISO         12 / ICSP-1   50        D12        ICSP-1           14
- * SPI SCK     SCK          13 / ICSP-3   52        D13        ICSP-3           15
- *
- * Hardware required:
- * Arduino
- * PCD (Proximity Coupling Device): NXP MFRC522 Contactless Reader IC
- * PICC (Proximity Integrated Circuit Card): A card or tag using the ISO 14443A interface, eg Mifare or NTAG203.
- * The reader can be found on eBay for around 5 dollars. Search for "mf-rc522" on ebay.com. 
- */
-
+#include <Key.h>
+#include <Keypad.h>
+#include <Wire.h>
+#include <Keyboard.h>
+#include <LiquidCrystal_I2C.h>
 #include <SPI.h>
 #include <MFRC522.h>
 
-#define RST_PIN         9           // Configurable, see typical pin layout above
-#define SS_PIN          10          // Configurable, see typical pin layout above
+#define RST_PIN         9
+#define SS_PIN          10
 
-MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance
+MFRC522 mfrc522(SS_PIN, RST_PIN);
+
+LiquidCrystal_I2C lcd( 0x27, 16, 2);
+
+const byte ROWS = 4; 
+const byte COLS = 4; 
+
+char hexaKeys[ROWS][COLS] = {
+  {'1', '2', '3', 'A'},
+  {'4', '5', '6', 'B'},
+  {'7', '8', '9', 'C'},
+  {'*', '0', '#', 'D'}
+};
+
+byte rowPins[ROWS] = {8, 7, 6, 5}; 
+byte colPins[COLS] = {4, 3, 2, 1}; 
+
+Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS); 
+
 
 void setup() {
-  Serial.begin(9600);        // Initialize serial communications with the PC
-  SPI.begin();               // Init SPI bus
-  mfrc522.PCD_Init();        // Init MFRC522 card
+  Serial.begin(9600);
+  SPI.begin();
+  mfrc522.PCD_Init();
+  lcd.init();
+  lcd.backlight();
+  lcd.setCursor(0,0);
 }
 
 void loop() {
 
-  // Prepare key - all keys are set to FFFFFFFFFFFFh at chip delivery from the factory.
-  MFRC522::MIFARE_Key key;
+
+
+  /*MFRC522::MIFARE_Key key;
   for (byte i = 0; i < 6; i++) key.keyByte[i] = 0xFF;
 
   // Look for new cards
@@ -44,7 +50,6 @@ void loop() {
     return;
   }
 
-  // Select one of the cards
   if ( ! mfrc522.PICC_ReadCardSerial()) {
     return;
   }
@@ -55,5 +60,15 @@ void loop() {
   }
   Serial.println();
    delay(500);
+   //if (Serial.read() == "Godkendt")*/
+    //{
+       char customKey = customKeypad.getKey();
+  
+      if (customKey)
+      {
+        lcd.print(customKey);
+        Serial.println(customKey);
+      }
+    //}
  
 }
