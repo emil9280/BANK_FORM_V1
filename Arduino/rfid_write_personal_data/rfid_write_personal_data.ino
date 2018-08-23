@@ -8,6 +8,7 @@
 
 #define RST_PIN         9
 #define SS_PIN          10
+String ID;
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
@@ -40,12 +41,34 @@ void setup() {
 
 void loop() {
 
+  if (readcard() == false)
+  {Serial.println("Error");}
+  else
+  {
+    char customKey = customKeypad.getKey();
+  
+      if (customKey)
+      {
+        lcd.print(customKey);
+        Serial.print(customKey);
+        if (customKey == '#')
+        {
+          Serial.println("");
+        }
+        else
+        {
+          loop();
+        }
+      }
+  }
+ 
+}
 
-
-  /*MFRC522::MIFARE_Key key;
+bool readcard()
+{
+  MFRC522::MIFARE_Key key;
   for (byte i = 0; i < 6; i++) key.keyByte[i] = 0xFF;
 
-  // Look for new cards
   if ( ! mfrc522.PICC_IsNewCardPresent()) {
     return;
   }
@@ -57,18 +80,13 @@ void loop() {
   for (byte i = 0; i < mfrc522.uid.size; i++) {
     Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
     Serial.print(mfrc522.uid.uidByte[i], HEX);
+    ID = mfrc522.uid.uidByte[i],HEX;
   }
   Serial.println();
    delay(500);
-   //if (Serial.read() == "Godkendt")*/
-    //{
-       char customKey = customKeypad.getKey();
-  
-      if (customKey)
-      {
-        lcd.print(customKey);
-        Serial.println(customKey);
-      }
-    //}
- 
-}
+
+   if (ID != NULL)
+   {return true;}
+   else
+   {return false;}
+   }
