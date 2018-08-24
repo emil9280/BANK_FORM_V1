@@ -1,7 +1,5 @@
-#include <Key.h>
 #include <Keypad.h>
 #include <Wire.h>
-#include <Keyboard.h>
 #include <LiquidCrystal_I2C.h>
 #include <SPI.h>
 #include <MFRC522.h>
@@ -9,6 +7,8 @@
 #define RST_PIN         9
 #define SS_PIN          10
 String ID;
+String READLN;
+String WAIT = "0";
 
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
@@ -40,31 +40,25 @@ void setup() {
 }
 
 void loop() {
+  READLN = " ";
+  WAIT = " ";
+  ID = " ";
+READLN = Serial.readString();
 
-  if (readcard() == false)
-  {Serial.println("Error");}
-  else
-  {
-    char customKey = customKeypad.getKey();
-  
-      if (customKey)
-      {
-        lcd.print(customKey);
-        Serial.print(customKey);
-        if (customKey == '#')
-        {
-          Serial.println("");
-        }
-        else
-        {
-          loop();
-        }
-      }
-  }
+if ( READLN == "CARD")
+{
+  readcard();
+}
+
+else if (READLN == "PIN")
+{
+  PIN();
+}
+
  
 }
 
-bool readcard()
+void readcard()
 {
   MFRC522::MIFARE_Key key;
   for (byte i = 0; i < 6; i++) key.keyByte[i] = 0xFF;
@@ -76,7 +70,6 @@ bool readcard()
   if ( ! mfrc522.PICC_ReadCardSerial()) {
     return;
   }
-
   for (byte i = 0; i < mfrc522.uid.size; i++) {
     Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
     Serial.print(mfrc522.uid.uidByte[i], HEX);
@@ -90,3 +83,31 @@ bool readcard()
    else
    {return false;}
    }
+
+   void PIN()
+   {
+    while (WAIT.substring(0) != "#")
+    {
+        char customKey = customKeypad.getKey();
+  
+      if (customKey)
+      {
+        lcd.print(customKey);
+        Serial.print(customKey);
+        if (customKey == '#')
+        {
+          WAIT = customKey;
+          Serial.println("");
+          return true;
+          //loop();
+        }
+        else
+        {
+          PIN();
+          //return;
+          //loop();
+        }
+      }
+      }
+   }
+
