@@ -14,8 +14,8 @@ MFRC522 mfrc522(SS_PIN, RST_PIN);
 
 LiquidCrystal_I2C lcd( 0x27, 16, 2);
 
-const byte ROWS = 4; 
-const byte COLS = 4; 
+const byte ROWS = 4;
+const byte COLS = 4;
 
 char hexaKeys[ROWS][COLS] = {
   {'1', '2', '3', 'A'},
@@ -24,10 +24,10 @@ char hexaKeys[ROWS][COLS] = {
   {'*', '0', '#', 'D'}
 };
 
-byte rowPins[ROWS] = {8, 7, 6, 5}; 
-byte colPins[COLS] = {4, 3, 2, 1}; 
+byte rowPins[ROWS] = {8, 7, 6, 5};
+byte colPins[COLS] = {4, 3, 2, 1};
 
-Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS); 
+Keypad customKeypad = Keypad(makeKeymap(hexaKeys), rowPins, colPins, ROWS, COLS);
 
 
 void setup() {
@@ -36,26 +36,26 @@ void setup() {
   mfrc522.PCD_Init();
   lcd.init();
   lcd.backlight();
-  lcd.setCursor(0,0);
+  lcd.setCursor(0, 0);
 }
 
 void loop() {
   READLN = " ";
   WAIT = " ";
   ID = " ";
-READLN = Serial.readString();
+  READLN = Serial.readString();
 
-if ( READLN == "CARD")
-{
-  readcard();
-}
+  if ( READLN == "CARD")
+  {
+    readcard();
+  }
 
-else if (READLN == "PIN")
-{
-  PIN();
-}
+  else if (READLN == "PIN")
+  {
+    PIN();
+  }
 
- 
+
 }
 
 void readcard()
@@ -73,41 +73,46 @@ void readcard()
   for (byte i = 0; i < mfrc522.uid.size; i++) {
     Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
     Serial.print(mfrc522.uid.uidByte[i], HEX);
-    ID = mfrc522.uid.uidByte[i],HEX;
+    ID = mfrc522.uid.uidByte[i], HEX;
   }
   Serial.println();
-   delay(500);
+  delay(500);
 
-   if (ID != NULL)
-   {return true;}
-   else
-   {return false;}
-   }
+  if (ID != NULL)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
 
-   void PIN()
-   {
-    while (WAIT.substring(0) != "#")
+void PIN()
+{
+  lcd.print("Card detekted");
+  while (WAIT.substring(0) != "#")
+  {
+    char customKey = customKeypad.getKey();
+
+    if (customKey)
     {
-        char customKey = customKeypad.getKey();
-  
-      if (customKey)
+      lcd.print(customKey);
+      Serial.print(customKey);
+      if (customKey == '#')
       {
-        lcd.print(customKey);
-        Serial.print(customKey);
-        if (customKey == '#')
-        {
-          WAIT = customKey;
-          Serial.println("");
-          return true;
-          //loop();
-        }
-        else
-        {
-          PIN();
-          //return;
-          //loop();
-        }
+        WAIT = customKey;
+        Serial.println("");
+        return true;
+        //loop();
       }
+      else
+      {
+        PIN();
+        //return;
+        //loop();
       }
-   }
+    }
+  }
+}
 
