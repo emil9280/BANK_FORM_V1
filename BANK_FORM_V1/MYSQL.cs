@@ -99,12 +99,13 @@ namespace BANK_FORM_V1
             else return list;
         }
 
-        public List<string> RFID()
+        public List<string>[] RFID()
         {
-            string query = "SELECT RFID FROM bankusers";
+            string query = "SELECT * FROM bankusers";
 
-            List<string> list = new List<string>();
-            list = new List<string>();
+            List<string>[] list = new List<string>[2];
+            list[0] = new List<string>();
+            list[1] = new List<string>();
 
             if (this.OpenConnection())
             {
@@ -113,7 +114,8 @@ namespace BANK_FORM_V1
 
                 while (dataReader.Read())
                 {
-                    list.Add(dataReader["RFID"] + "");
+                    list[0].Add(dataReader["RFID"] + "");
+                    list[1].Add(dataReader["RFID_PIN"] + "");
                 }
 
                 dataReader.Close();

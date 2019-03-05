@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.IO.Ports;
 
 namespace BANK_FORM_V1
 {
@@ -28,7 +27,7 @@ namespace BANK_FORM_V1
             account = Convert.ToInt16(list[ID]);
             Account_Check();
             Pulled_data();
-            //Balance_List = balance.account_ID();
+            Account_CB.DataSource = balance.account();
             if (User_ID == -1)
             {
                 general_error general_Error = new general_error();

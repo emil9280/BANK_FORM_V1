@@ -31,7 +31,7 @@
             this.choose_label = new System.Windows.Forms.Label();
             this.Transfere_button = new System.Windows.Forms.Button();
             this.Help_button = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Account_CB = new System.Windows.Forms.ComboBox();
             this.Balance_label = new System.Windows.Forms.Label();
             this.account_label = new System.Windows.Forms.Label();
             this.User_ID_number_label = new System.Windows.Forms.Label();
@@ -67,13 +67,13 @@
             this.Help_button.UseVisualStyleBackColor = true;
             this.Help_button.Click += new System.EventHandler(this.Help_button_Click);
             // 
-            // comboBox1
+            // Account_CB
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 71);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.Account_CB.FormattingEnabled = true;
+            this.Account_CB.Location = new System.Drawing.Point(12, 71);
+            this.Account_CB.Name = "Account_CB";
+            this.Account_CB.Size = new System.Drawing.Size(121, 21);
+            this.Account_CB.TabIndex = 4;
             // 
             // Balance_label
             // 
@@ -121,7 +121,7 @@
             this.Controls.Add(this.User_ID_number_label);
             this.Controls.Add(this.account_label);
             this.Controls.Add(this.Balance_label);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.Account_CB);
             this.Controls.Add(this.Help_button);
             this.Controls.Add(this.Transfere_button);
             this.Controls.Add(this.choose_label);
@@ -140,7 +140,7 @@
         private System.Windows.Forms.Label choose_label;
         private System.Windows.Forms.Button Transfere_button;
         private System.Windows.Forms.Button Help_button;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox Account_CB;
         private System.Windows.Forms.Label Balance_label;
         private System.Windows.Forms.Label account_label;
         private System.Windows.Forms.Label User_ID_number_label;
