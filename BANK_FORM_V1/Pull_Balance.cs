@@ -22,11 +22,6 @@ namespace BANK_FORM_V1
             Initiallize();
         }
 
-        /*public List<string> account_ID()
-        {
-            int ID = SingleTon.GetID();
-        }*/
-
         private void Initiallize()
         {
             server = "localhost";
@@ -99,12 +94,11 @@ namespace BANK_FORM_V1
                     MySqlDataReader dataReader = cmd.ExecuteReader();
                     while (dataReader.Read())
                     {
-                        list[i].Add(dataReader["balance" + i] + "");
+                        list[i].Add(dataReader["balance" + i] + "");//rediger for at få det rigtige beløb ud når vi trækker balance for lige nu tager den det nummer på rækken og sender ud istedetfor det tal der står på den plads
                     }
                     dataReader.Close();
                 }
 
-                //dataReader.Close();
                 this.CloseConnection();
                 return list;
             }
