@@ -83,13 +83,15 @@ namespace BANK_FORM_V1
                 list[i] = new List<string>();
             }
 
-            string query = "SELECT * FROM bankusers";
+            string username = SingleTon.GetUser();
+
+            string query = "SELECT username, password FROM bankusers WHERE bankusers.username = '"+username+"'" ;
 
             if (this.OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                for (int i = 0; i <= accounts + 1; i++)
+                /*for (int i = 0; i <= accounts + 1; i++)
                 {
                     MySqlDataReader dataReader = cmd.ExecuteReader();
                     while (dataReader.Read())
@@ -97,7 +99,7 @@ namespace BANK_FORM_V1
                         list[i].Add(dataReader["balance" + i] + "");//rediger for at få det rigtige beløb ud når vi trækker balance for lige nu tager den det nummer på rækken og sender ud istedetfor det tal der står på den plads
                     }
                     dataReader.Close();
-                }
+                }*/
 
                 this.CloseConnection();
                 return list;

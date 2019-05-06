@@ -18,6 +18,7 @@ namespace BANK_FORM_V1
         public int ID_;
         public Form1()
         {
+            
             RFID rFID = new RFID();
             rFID.MyPort();
             InitializeComponent();
@@ -26,11 +27,12 @@ namespace BANK_FORM_V1
 
         private void login_button_Click(object sender, EventArgs e)
         {
-            
+            SingleTon.SetUser(Username_TB.Text);
+
             List<string>[] list = mysql.SelectLogin();
             if (UserCheck(list[0], list[1], Username_TB.Text, Password_TB.Text))
             {
-                SingleTon.SetUser(Username_TB.Text);
+                
                 SingleTon.SetID(ID_);
                 Form2 form2 = new Form2();
                 form2.Show();

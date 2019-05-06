@@ -73,13 +73,17 @@ namespace BANK_FORM_V1
             }
         }
 
-        public List<string>[] SelectLogin()
+        public string SelectLogin()
         {
-            string query = "SELECT * FROM bankusers";
+            string username = SingleTon.GetUser();
+            //string query = "SELECT * FROM bankusers";
+            string query = "SELECT username, password FROM bankusers WHERE bankusers.username = '" + username + "'";
 
-            List<string>[] list = new List<string>[2];
-            list[0] = new List<string>();
-            list[1] = new List<string>();
+            //List<string>[] list = new List<string>[2];
+            //list[0] = new List<string>();
+            //list[1] = new List<string>();
+            string username1;
+            string password;
 
             if (this.OpenConnection())
             {
@@ -88,15 +92,19 @@ namespace BANK_FORM_V1
 
                 while (dataReader.Read())
                 {
-                    list[0].Add(dataReader["username"] + "");
-                    list[1].Add(dataReader["password"] + "");
+
+                    username1 = Convert.ToString(dataReader["username"] + "");
+                    
+                    password = Convert.ToString(dataReader["password"] + "");
+                    //list[0].Add(dataReader["username"] + "");
+                    //list[1].Add(dataReader["password"] + "");
                 }
 
                 dataReader.Close();
                 this.CloseConnection();
-                return list;
+                return username1, password;
             }
-            else return list;
+            else return username1, password;
         }
 
         public List<string>[] RFID()
